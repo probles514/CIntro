@@ -1,27 +1,19 @@
-# Compiler
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
-
-# Target executable
+CFLAGS = -Wall -g
 TARGET = calculator
+SOURCES = calculator.c
+OBJECTS = $(SOURCES:.c=.o)
 
-# Source files
-SRCS = calculator.c
-
-# Object files
-OBJS = $(SRCS:.c=.o)
-
-# Default target: Compile the program
 all: $(TARGET)
 
-# Rule to build the executable
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+$(TARGET): $(OBJECTS)
+    $(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
 
-# Rule to compile the source files into object files
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+    $(CC) $(CFLAGS) -c $< -o $@
 
-# Clean target to remove compiled files
+run: $(TARGET)
+    ./$(TARGET)
+
 clean:
-	rm -f $(OBJS) $(TARGET)
+    rm -f $(TARGET) $(OBJECTS)
