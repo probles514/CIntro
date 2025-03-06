@@ -24,7 +24,7 @@ int main(void) {
 
   // TODO: add the rest of the math operations here (make sure to follow the
   // same coding structure as above to make it easier to read!):
-
+  
   // always return 0; at the end of the main function
   return 0;
 }
