@@ -7,13 +7,13 @@ OBJECTS = $(SOURCES:.c=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-    $(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
 
 %.o: %.c
-    $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 run: $(TARGET)
-    ./$(TARGET)
+	./$(TARGET)
 
 clean:
-    rm -f $(TARGET) $(OBJECTS)
+	rm -f $(TARGET) $(OBJECTS)
